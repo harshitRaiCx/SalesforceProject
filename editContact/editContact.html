@@ -1,0 +1,46 @@
+<template>
+    <div >
+    <lightning-card icon-name="standard:contact" variant="base" title="Edit Contacts">
+        <lightning-record-edit-form
+        record-id={contactId}
+        object-api-name="Contact"
+        columns="2"
+        >
+        <lightning-messages> </lightning-messages>
+        <div class="slds-grid">
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input-field field-name="FirstName"></lightning-input-field>
+                <lightning-input-field field-name="LastName"></lightning-input-field>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input-field field-name="Phone"></lightning-input-field>
+                <lightning-input-field field-name="Email"></lightning-input-field>
+            </div>
+        </div>
+        <br>
+        <footer class="slds-modal__footer">
+            <div>
+            <lightning-button
+                class="slds-button slds-button_brand"
+                variant="brand"
+                label="Cancel"
+                onclick={handleclose}>
+            </lightning-button>
+            <lightning-button
+                class="slds-button slds-button_brand"
+                variant="brand"
+                type="submit"
+                name="update"
+                label="Update"
+                onclick={handleclick}
+            >
+            </lightning-button>
+        </div>
+        </footer>
+    </lightning-record-edit-form>
+    <div if:true={isLoaded}>
+        <lightning-spinner alternative-text="Loading..." variant="Brand"></lightning-spinner>
+    </div>
+    </lightning-card>
+    </div>
+</template>
